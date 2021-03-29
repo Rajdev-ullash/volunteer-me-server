@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const ObjectID = require('mongodb').ObjectID;
 require('dotenv').config();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -81,6 +81,4 @@ client.connect(err => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || port)
